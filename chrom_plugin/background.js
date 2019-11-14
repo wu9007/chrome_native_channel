@@ -21,7 +21,7 @@ function connectToNativeHost(msg) {
     var hostName = msg.hostName;
     port = chrome.runtime.connectNative(hostName);
     port.onMessage.addListener(onNativeMessage);
-    postMessage({ message: "传输数据" });
+    port.postMessage({ message: "asdf" });
     alert("传输数据")
     port.onDisconnect.addListener(onDisconnected);
 }
