@@ -1,0 +1,9 @@
+{
+    "name": "org.leyan95.launchlaunchcloudmusic",
+    "description": "Chrome sent message to native app.",
+    "path": "D:\\SysApp\\CloudMusic\\cloudmusic.exe",
+    "type": "stdio",
+    "allowed_origins": [
+        "chrome-extension://aaghkkhobobningoihfhojdjlccbnnna/"
+    ]
+}
