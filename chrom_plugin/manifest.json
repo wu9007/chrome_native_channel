@@ -8,15 +8,7 @@
     ]
   },
   "permissions": [
-    "nativeMessaging",
-    "contextMenus",
-    "tabs",
-    "notifications",
-    "webRequest",
-    "webRequestBlocking",
-    "storage",
-    "http://*/*",
-    "https://*/*"
+    "nativeMessaging"
   ],
   "content_scripts": [
     {

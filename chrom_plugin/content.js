@@ -1,6 +1,12 @@
-document.addEventListener('launchCloudMusic', function (event, param) {
-  console.log('启动网易云音乐，携带数据: ' + JSON.stringify(event.detail));
-  chrome.runtime.sendMessage({ type: "launch", message: event.detail }, function (response) {
+document.addEventListener('launchNative', function (event, param) {
+  var channelName = event.detail.channelName;
+  console.log(JSON.stringify(channelName));
+  chrome.runtime.sendMessage({ type: "launch", message: { hostName: channelMapper[channelName] } }, function (response) {
     console.log(response)
   });
 }, false);
+
+var channelMapper = {
+  "cloudmusic": "org.leyan95.launchlaunchcloudmusic",
+  "printer": "com.shinow.printer"
+}

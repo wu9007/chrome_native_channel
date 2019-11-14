@@ -1,0 +1,1 @@
+java -jar printer-1.0.jar %*

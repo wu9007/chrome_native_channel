@@ -1,14 +1,19 @@
 <html>
   <head>
     <script>
-function launch() {
-    var event = new CustomEvent("launchCloudMusic", {"detail":{"username":123},"bubbles":true,"cancelable":true});
-    document.dispatchEvent(event);
-}
+      function launchMusic() {
+          var event = new CustomEvent("launchNative", {"detail":{"channelName":"cloudmusic"},"bubbles":true,"cancelable":true});
+          document.dispatchEvent(event);
+      }
+      function launchPrinter() {
+          var event = new CustomEvent("launchNative", {"detail":{"channelName":"printer"},"bubbles":true,"cancelable":true});
+          document.dispatchEvent(event);
+      }
 
 </script>
   </head>
   <body>
-    <button type="button" onClick="launch()">启动网易云音乐</button>
+    <button type="button" onClick="launchMusic()">启动网易云音乐</button>
+    <button type="button" onClick="launchPrinter()">启动打印机</button>
   </body>
 </html>

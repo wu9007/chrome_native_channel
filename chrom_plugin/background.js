@@ -1,34 +1,27 @@
 var port = null;
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log('launch');
-     if (request.type == "launch"){
-        connectToNativeHost(request.message);
-    }
-    return true;
-});
+    function (request, sender, sendResponse) {
+        if (request.type == "launch") {
+            connectToNativeHost(request.message);
+        }
+        return true;
+    });
 
 
 //onNativeDisconnect
-function onDisconnected()
-{
-    console.log(chrome.runtime.lastError);
-    console.log('disconnected from native app.');
+function onDisconnected() {
     port = null;
 }
 
 function onNativeMessage(message) {
-    console.log('recieved message from native app: ' + JSON.stringify(message));
 }
 
 //connect to native host and get the communicatetion port
-function connectToNativeHost(msg)
-{
-    console.log('connect to native hoset');
-    var nativeHostName = "org.leyan95.launchlaunchcloudmusic";
-    console.log(nativeHostName);
-    port = chrome.runtime.connectNative(nativeHostName);
+function connectToNativeHost(msg) {
+    var hostName = msg.hostName;
+    port = chrome.runtime.connectNative(hostName);
     port.onMessage.addListener(onNativeMessage);
+    postMessage({ message: "传输数据" });
+    alert("传输数据")
     port.onDisconnect.addListener(onDisconnected);
-    port.postMessage({message: msg});
- }
+}

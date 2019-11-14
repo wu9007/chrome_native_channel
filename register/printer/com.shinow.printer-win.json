@@ -1,0 +1,9 @@
+{
+    "name": "com.shinow.printer",
+    "description": "Chrome sent message to native app.",
+    "path": "print.bat",
+    "type": "stdio",
+    "allowed_origins": [
+      "chrome-extension://aaghkkhobobningoihfhojdjlccbnnna/"
+    ]
+  }
