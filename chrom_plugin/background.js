@@ -1,27 +1,25 @@
 var port = null;
-chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        if (request.type == "launch") {
-            connectToNativeHost(request.message);
-        }
-        return true;
-    });
-
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.type == "launch") {
+    connectToNativeHost(request.message);
+  }
+  return true;
+});
 
 //onNativeDisconnect
 function onDisconnected() {
-    port = null;
+  port = null;
 }
 
-function onNativeMessage(message) {
-}
+function onNativeMessage(message) {}
 
 //connect to native host and get the communicatetion port
 function connectToNativeHost(msg) {
-    var hostName = msg.hostName;
-    port = chrome.runtime.connectNative(hostName);
-    port.onMessage.addListener(onNativeMessage);
-    port.postMessage({ message: "asdf" });
-    alert("传输数据")
-    port.onDisconnect.addListener(onDisconnected);
+  var hostName = msg.hostName,
+    data = msg.data;
+  port = chrome.runtime.connectNative(hostName);
+  port.onMessage.addListener(onNativeMessage);
+  port.postMessage(data);
+  alert("传输数据");
+  port.onDisconnect.addListener(onDisconnected);
 }

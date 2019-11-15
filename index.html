@@ -2,12 +2,14 @@
   <head>
     <script>
       function launchMusic() {
-          var event = new CustomEvent("launchNative", {"detail":{"channelName":"cloudmusic"},"bubbles":true,"cancelable":true});
-          document.dispatchEvent(event);
+        var detail = {channelName:"cloudmusic"},
+            event = new CustomEvent("launchNative", {"detail":detail,"bubbles":true,"cancelable":true});
+        document.dispatchEvent(event);
       }
       function launchPrinter() {
-          var event = new CustomEvent("launchNative", {"detail":{"channelName":"printer"},"bubbles":true,"cancelable":true});
-          document.dispatchEvent(event);
+        var detail = {channelName:"printer", data: {code:"A-001", name:"离心机", specification:"RND-029367868"}},
+            event = new CustomEvent("launchNative", {"detail":detail,"bubbles":true,"cancelable":true});
+        document.dispatchEvent(event);
       }
 
 </script>
