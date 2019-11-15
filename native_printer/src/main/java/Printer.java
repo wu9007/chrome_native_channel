@@ -13,7 +13,7 @@ public class Printer {
     void print() throws IOException {
         String message = this.readMessage();
         OutputStream out = new FileOutputStream("F:\\2.txt");
-        out.write(message.getBytes());
+        out.write(message.getBytes(StandardCharsets.UTF_8));
     }
 
     private String readMessage() throws IOException {
