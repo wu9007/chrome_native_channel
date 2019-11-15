@@ -1,12 +1,8 @@
-### Please modify these paths yourself
+# Chrome Native Channel
 
-- install.reg
-```shell
-Windows Registry Editor Version 5.00
+> 一个向东芝标签打印机发送打印指令的 Chrome 插件。
 
-[HKEY_CURRENT_USER\SOFTWARE\Google\Chrome\NativeMessagingHosts\org.leyan95.launchlaunchcloudmusic]
-@="F:\\chrom_native_channel\\register\\cloudmusic\\nativecall.json"  // Your `nativecall.json` path
-```
+### 请手动修改以下地址
 
 - nativecall.json
 ```json
@@ -20,3 +16,11 @@ Windows Registry Editor Version 5.00
     ]
 }
 ```
+
+#### 使用方式
+- 将 `chrome_plugin` 目录作为插件进行安装
+- 修改 `com.shinow.printer-win.json`  和 `nativecall.json` 中 `chrome-extension` 后跟的 `ID` 为上一步安装插件的 `ID`
+- 执行 `install_host.bat`
+- 打开 `index.html` 进行测试
+
+> 
